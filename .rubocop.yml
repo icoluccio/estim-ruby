@@ -1,0 +1,11 @@
+AllCops:
+  NewCops: enable
+
+Style/Encoding:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 1209
+
+Style/Documentation:
+  Enabled: false

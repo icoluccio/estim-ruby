@@ -16,10 +16,10 @@ end
 
 class Critico
   def criticar(juego)
-    juego.agregar_critica(escribir_critica(juego))
+    juego.agregar_critica!(escribir_critica(juego))
   end
 
-  def escribir_critica(_juego)
+  def escribir_critica(juego)
     Critica.new(texto, critica_positiva?(juego))
   end
 
@@ -53,7 +53,7 @@ class CriticoPago
   end
 
   def texto
-    PALABRAS.sample(5)
+    PALABRAS.sample(5).join(' ')
   end
 end
 

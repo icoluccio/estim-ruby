@@ -8,6 +8,8 @@ class Pais
   end
 
   def puede_venderse(juego)
-    caracteristicas_prohibidas.none? { |caracteristica| juego.incluye_caracteristica(caracteristica) }
+    caracteristicas_prohibidas.none? do |caracteristica|
+      juego.incluye_caracteristica(caracteristica)
+    end
   end
 end
