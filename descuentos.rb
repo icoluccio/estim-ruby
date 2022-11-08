@@ -23,7 +23,7 @@ module Descuento
     end
 
     def precio(juego)
-      juego.precio - descuento_fijo
+      (juego.precio - descuento_fijo).max(juego.precio / 2)
     end
   end
 end

@@ -28,10 +28,11 @@ class Critico
   def critica_positiva?(juego); end
 end
 
-class Usuario
+class Usuario < Critico
   attr_accessor :actitud_positiva
 
   def initialize(actitud_positiva)
+    super
     self.actitud_positiva = actitud_positiva
   end
 
@@ -44,7 +45,7 @@ class Usuario
   end
 end
 
-class CriticoPago
+class CriticoPago < Critico
   PALABRAS = %w[asdf dfsadf].freeze # Usar faker
   attr_accessor :juegos_pagos
 
@@ -57,7 +58,7 @@ class CriticoPago
   end
 end
 
-class Revista
+class Revista < Critico
   attr_accessor :criticos
 
   def critica_positiva?(juego)
@@ -66,6 +67,7 @@ class Revista
   end
 
   def texto
-    criticos.reduce('') { |critico, critica_conjunta| [critica_conjunta, critico.texto].join(' ') }
+    #    criticos.reduce('') { |critico, critica_conjunta| [critica_conjunta, critico.texto].join(' ') }
+    criticos.reduce('') { |critico, critica_conjunta| "#{critica_conjunta} #{critico.texto}" }
   end
 end

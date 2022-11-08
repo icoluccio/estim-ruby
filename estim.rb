@@ -4,6 +4,10 @@ class Estim
   DESCUENTO_MASIVO = 25
   attr_accessor :juegos
 
+  def initialize(juegos)
+    self.juegos = juegos
+  end
+
   def juego_mas_caro
     juegos.max(&:precio_bruto)
   end
@@ -17,7 +21,7 @@ class Estim
   end
 
   def aplicar_descuento_masivo
-    juegos_caros.each { |juego| juego.descuento(Descuento::Directo.new(DESCUENTO_MASIVO)) }
+    juegos_caros.each { |juego| juego.descuento = Descuento::Directo.new(DESCUENTO_MASIVO) }
   end
 
   def promedio_de_precio_para_menores(_pais)
